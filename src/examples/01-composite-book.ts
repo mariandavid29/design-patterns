@@ -1,8 +1,8 @@
-import { Author } from './author.ts'
-import { Book } from './book.ts'
-import { Image } from './image.ts'
-import { Paragraph } from './paragraph.ts'
-import { Section } from './section.ts'
+import { Author } from '../document/author.ts'
+import { Book } from '../document/book.ts'
+import { Image } from '../document/image.ts'
+import { Paragraph } from '../document/paragraph.ts'
+import { Section } from '../document/section.ts'
 
 export const main = (): void => {
   const noapteBuna = new Book('Noapte buna, copii!')

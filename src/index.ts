@@ -1,5 +1,3 @@
-const main = (): void => {
-  console.log('Hello from design-patterns')
-}
+import { main as CompositeBookMain } from './composite-book/main.ts'
 
-main()
+CompositeBookMain()

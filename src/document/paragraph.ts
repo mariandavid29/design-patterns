@@ -1,4 +1,4 @@
-import { defaultContext, type AlignStrategy } from './align-strategy.ts'
+import { defaultContext, type AlignStrategy } from './alignment/align-strategy.ts'
 import type { Element } from './element.ts'
 
 export class Paragraph implements Element {

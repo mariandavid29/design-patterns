@@ -1,8 +1,8 @@
-import { AlignCenter } from '../composite-book/align-center.ts'
-import { AlignLeft } from '../composite-book/align-left.ts'
-import { AlignRight } from '../composite-book/align-right.ts'
-import { Paragraph } from '../composite-book/paragraph.ts'
-import { Section } from '../composite-book/section.ts'
+import { AlignCenter } from '../document/alignment/align-center.ts'
+import { AlignLeft } from '../document/alignment/align-left.ts'
+import { AlignRight } from '../document/alignment/align-right.ts'
+import { Paragraph } from '../document/paragraph.ts'
+import { Section } from '../document/section.ts'
 
 export const main = (): void => {
   const cap1 = new Section('Capitolul 1')

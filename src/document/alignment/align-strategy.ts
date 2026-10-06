@@ -1,4 +1,4 @@
-import type { Paragraph } from './paragraph.ts'
+import type { Paragraph } from '../paragraph.ts'
 
 export interface Context {
   readonly width: number

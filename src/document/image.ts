@@ -1,4 +1,5 @@
 import type { Element } from './element.ts'
+import type { Visitor } from './visitor/visitor.ts'
 
 const LOAD_DELAY_MS = 5000
 
@@ -15,7 +16,11 @@ export class Image implements Element {
     sleepSync(LOAD_DELAY_MS)
   }
 
-  print(): void {
+  accept(visitor: Visitor): void {
+    visitor.visitImage(this)
+  }
+
+  render(): void {
     console.log(`Image with url: ${this.url}`)
   }
 }

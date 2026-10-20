@@ -1,5 +1,6 @@
 import type { Author } from './author.ts'
 import type { Element } from './element.ts'
+import type { Visitor } from './visitor/visitor.ts'
 
 export class Book {
   readonly title: string
@@ -18,10 +19,14 @@ export class Book {
     this.content.push(element)
   }
 
-  print(): void {
+  accept(visitor: Visitor): void {
+    visitor.visitBook(this)
+    for (const element of this.content) element.accept(visitor)
+  }
+
+  render(): void {
     console.log(`Book: ${this.title}`)
     console.log('Authors:')
     for (const author of this.authors) author.print()
-    for (const element of this.content) element.print()
   }
 }

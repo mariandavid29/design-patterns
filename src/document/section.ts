@@ -1,4 +1,5 @@
 import type { Element } from './element.ts'
+import type { Visitor } from './visitor/visitor.ts'
 
 export class Section implements Element {
   readonly title: string
@@ -21,8 +22,13 @@ export class Section implements Element {
     return this.children[index]
   }
 
-  print(): void {
+  // The section is the composite, so it carries the visitor down to its children.
+  accept(visitor: Visitor): void {
+    visitor.visitSection(this)
+    for (const child of this.children) child.accept(visitor)
+  }
+
+  render(): void {
     console.log(this.title)
-    for (const child of this.children) child.print()
   }
 }

@@ -2,12 +2,16 @@ import { main as CompositeBookMain } from './examples/01-composite-book.ts'
 import { main as StrategyAlignMain } from './examples/02-strategy-align.ts'
 import { main as ImageLoadingMain } from './examples/03-image-loading.ts'
 import { main as ImageProxyMain } from './examples/04-image-proxy.ts'
+import { main as VisitorStatisticsMain } from './examples/05-visitor-statistics.ts'
+import { main as VisitorToCMain } from './examples/06-visitor-toc.ts'
 
 const examples = new Map<string, () => void>([
   ['composite', CompositeBookMain],
   ['strategy', StrategyAlignMain],
   ['image-loading', ImageLoadingMain],
   ['image-proxy', ImageProxyMain],
+  ['visitor-statistics', VisitorStatisticsMain],
+  ['visitor-toc', VisitorToCMain],
 ])
 
 const name = process.argv[2]

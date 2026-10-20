@@ -1,3 +1,5 @@
+import type { Visitor } from './visitor/visitor.ts'
+
 export interface Element {
-  print(): void
+  accept(visitor: Visitor): void
 }

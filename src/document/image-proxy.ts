@@ -1,5 +1,6 @@
 import type { Element } from './element.ts'
 import { Image } from './image.ts'
+import type { Visitor } from './visitor/visitor.ts'
 
 export class ImageProxy implements Element {
   readonly url: string
@@ -14,7 +15,11 @@ export class ImageProxy implements Element {
     return this.realImage
   }
 
-  print(): void {
-    this.loadImage().print()
+  accept(visitor: Visitor): void {
+    visitor.visitImageProxy(this)
+  }
+
+  render(): void {
+    this.loadImage().render()
   }
 }

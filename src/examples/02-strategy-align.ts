@@ -3,6 +3,7 @@ import { AlignLeft } from '../document/alignment/align-left.ts'
 import { AlignRight } from '../document/alignment/align-right.ts'
 import { Paragraph } from '../document/paragraph.ts'
 import { Section } from '../document/section.ts'
+import { RenderContentVisitor } from '../document/visitor/render-content-visitor.ts'
 
 export const main = (): void => {
   const cap1 = new Section('Capitolul 1')
@@ -17,7 +18,7 @@ export const main = (): void => {
 
   console.log('Printing without Alignment')
   console.log()
-  cap1.print()
+  cap1.accept(new RenderContentVisitor())
 
   p1.setAlignStrategy(new AlignCenter())
   p2.setAlignStrategy(new AlignRight())
@@ -26,5 +27,5 @@ export const main = (): void => {
   console.log()
   console.log('Printing with Alignment')
   console.log()
-  cap1.print()
+  cap1.accept(new RenderContentVisitor())
 }

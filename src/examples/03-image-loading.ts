@@ -1,6 +1,7 @@
 import { Book } from '../document/book.ts'
 import { Image } from '../document/image.ts'
 import { Section } from '../document/section.ts'
+import { RenderContentVisitor } from '../document/visitor/render-content-visitor.ts'
 
 export const main = (): void => {
   let startTime = performance.now()
@@ -19,12 +20,12 @@ export const main = (): void => {
   console.log(`Creation of the content took ${Math.round(endTime - startTime)} milliseconds`)
 
   startTime = performance.now()
-  playboyS1.print()
+  playboyS1.accept(new RenderContentVisitor())
   endTime = performance.now()
   console.log(`Printing of the section 1 took ${Math.round(endTime - startTime)} milliseconds`)
 
   startTime = performance.now()
-  playboyS1.print()
+  playboyS1.accept(new RenderContentVisitor())
   endTime = performance.now()
   console.log(`Printing again the section 1 took ${Math.round(endTime - startTime)} milliseconds`)
 }

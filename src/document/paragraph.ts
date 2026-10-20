@@ -1,5 +1,6 @@
 import { defaultContext, type AlignStrategy } from './alignment/align-strategy.ts'
 import type { Element } from './element.ts'
+import type { Visitor } from './visitor/visitor.ts'
 
 export class Paragraph implements Element {
   readonly text: string
@@ -13,7 +14,11 @@ export class Paragraph implements Element {
     this.alignStrategy = alignStrategy
   }
 
-  print(): void {
+  accept(visitor: Visitor): void {
+    visitor.visitParagraph(this)
+  }
+
+  render(): void {
     const content = this.alignStrategy?.render(this, defaultContext) ?? this.text
     console.log(`Paragraph: ${content}`)
   }

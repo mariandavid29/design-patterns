@@ -3,6 +3,7 @@ import { Book } from '../document/book.ts'
 import { Image } from '../document/image.ts'
 import { Paragraph } from '../document/paragraph.ts'
 import { Section } from '../document/section.ts'
+import { RenderContentVisitor } from '../document/visitor/render-content-visitor.ts'
 
 export const main = (): void => {
   const noapteBuna = new Book('Noapte buna, copii!')
@@ -24,5 +25,5 @@ export const main = (): void => {
   cap111.add(cap1111)
   cap1111.add(new Image('Image subchapter 1.1.1.1'))
 
-  noapteBuna.print()
+  noapteBuna.accept(new RenderContentVisitor())
 }
